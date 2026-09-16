@@ -53,7 +53,7 @@ export default function ResumeModal({ isOpen, onClose }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '1.5rem',
+        padding: '1rem',
       }}
     >
       <div
@@ -64,7 +64,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           maxHeight: '92vh',
           overflowY: 'auto',
           borderRadius: '24px',
-          padding: '2rem',
+          padding: '1.5rem',
           position: 'relative',
           background: 'var(--bg-secondary)',
         }}
@@ -75,16 +75,18 @@ export default function ResumeModal({ isOpen, onClose }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            marginBottom: '1.5rem',
+            marginBottom: '1.25rem',
             paddingBottom: '1rem',
             borderBottom: '1px solid var(--card-border)',
+            flexWrap: 'wrap',
+            gap: '0.75rem',
           }}
         >
           <div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>
               Resume Viewer
             </h2>
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
               Ayisha Thesni Kozhikkoden - Software Engineer
             </span>
           </div>
@@ -93,7 +95,7 @@ export default function ResumeModal({ isOpen, onClose }) {
             <button
               onClick={handlePrint}
               className="btn btn-primary"
-              style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}
+              style={{ padding: '0.5rem 1rem', fontSize: '0.82rem' }}
             >
               <Printer size={16} />
               <span>Print / Save PDF</span>
@@ -126,17 +128,17 @@ export default function ResumeModal({ isOpen, onClose }) {
             background: '#ffffff',
             color: '#1e293b',
             borderRadius: '12px',
-            padding: '2.5rem',
+            padding: '1.5rem',
             boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
             fontFamily: 'Inter, sans-serif',
           }}
         >
           {/* Header */}
           <div style={{ textAlign: 'center', borderBottom: '2px solid #0f172a', paddingBottom: '1rem', marginBottom: '1.25rem' }}>
-            <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.02em', margin: 0 }}>
+            <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.02em', margin: 0 }}>
               {personalDetails.name}
             </h1>
-            <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0284c7', marginTop: '0.2rem' }}>
+            <div style={{ fontSize: '1rem', fontWeight: 700, color: '#0284c7', marginTop: '0.2rem' }}>
               Software Engineer
             </div>
             
@@ -144,10 +146,10 @@ export default function ResumeModal({ isOpen, onClose }) {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                gap: '1.25rem',
+                gap: '1rem',
                 flexWrap: 'wrap',
                 marginTop: '0.6rem',
-                fontSize: '0.85rem',
+                fontSize: '0.82rem',
                 color: '#475569',
               }}
             >
@@ -159,20 +161,20 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Profile Summary */}
           <div style={{ marginBottom: '1.25rem' }}>
-            <h2 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.5rem' }}>
+            <h2 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.5rem' }}>
               Profile Summary
             </h2>
-            <p style={{ fontSize: '0.88rem', color: '#334155', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: '0.85rem', color: '#334155', lineHeight: 1.6, margin: 0 }}>
               {personalDetails.bio}
             </p>
           </div>
 
           {/* Technical Skills */}
           <div style={{ marginBottom: '1.25rem' }}>
-            <h2 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.5rem' }}>
+            <h2 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.5rem' }}>
               Technical Skills
             </h2>
-            <div style={{ fontSize: '0.85rem', color: '#334155', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+            <div style={{ fontSize: '0.82rem', color: '#334155', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
               <div><strong style={{ color: '#0f172a' }}>Languages:</strong> Java, Python, JavaScript, C++, SQL</div>
               <div><strong style={{ color: '#0f172a' }}>Web Development:</strong> HTML, CSS, React.js, Node.js, Express.js</div>
               <div><strong style={{ color: '#0f172a' }}>Database:</strong> MongoDB</div>
@@ -183,19 +185,19 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Experience */}
           <div style={{ marginBottom: '1.25rem' }}>
-            <h2 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.6rem' }}>
+            <h2 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.6rem' }}>
               Experience
             </h2>
             {experiences.map((exp, idx) => (
               <div key={idx} style={{ marginBottom: '0.85rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, fontSize: '0.92rem', color: '#0f172a' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.3rem', fontWeight: 700, fontSize: '0.88rem', color: '#0f172a' }}>
                   <span>{exp.role}</span>
                   <span>{exp.period}</span>
                 </div>
-                <div style={{ fontStyle: 'italic', fontSize: '0.85rem', color: '#475569', marginBottom: '0.3rem' }}>
+                <div style={{ fontStyle: 'italic', fontSize: '0.82rem', color: '#475569', marginBottom: '0.3rem' }}>
                   {exp.company} — {exp.location}
                 </div>
-                <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.85rem', color: '#334155' }}>
+                <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.82rem', color: '#334155' }}>
                   {exp.highlights.map((h, hIdx) => (
                     <li key={hIdx} style={{ marginBottom: '0.2rem' }}>{h}</li>
                   ))}
@@ -206,16 +208,16 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Projects */}
           <div style={{ marginBottom: '1.25rem' }}>
-            <h2 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.6rem' }}>
+            <h2 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.6rem' }}>
               Projects
             </h2>
             {projects.map((proj, pIdx) => (
               <div key={pIdx} style={{ marginBottom: '0.85rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, fontSize: '0.92rem', color: '#0f172a' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.3rem', fontWeight: 700, fontSize: '0.88rem', color: '#0f172a' }}>
                   <span>{proj.title}</span>
-                  <span style={{ fontSize: '0.82rem', fontWeight: 600, color: '#64748b' }}>Academic Project</span>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#64748b' }}>Academic Project</span>
                 </div>
-                <ul style={{ margin: '0.3rem 0 0', paddingLeft: '1.2rem', fontSize: '0.85rem', color: '#334155' }}>
+                <ul style={{ margin: '0.3rem 0 0', paddingLeft: '1.2rem', fontSize: '0.82rem', color: '#334155' }}>
                   {proj.features.slice(0, 2).map((feat, fIdx) => (
                     <li key={fIdx} style={{ marginBottom: '0.2rem' }}>{feat}</li>
                   ))}
@@ -225,12 +227,18 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
 
           {/* Certifications & Education */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '1.25rem',
+            }}
+          >
             <div>
-              <h2 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.5rem' }}>
+              <h2 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.5rem' }}>
                 Certifications
               </h2>
-              <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.85rem', color: '#334155' }}>
+              <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.82rem', color: '#334155' }}>
                 {certifications.map((c, cIdx) => (
                   <li key={cIdx} style={{ marginBottom: '0.2rem' }}>{c.title} – {c.issuer}</li>
                 ))}
@@ -238,10 +246,10 @@ export default function ResumeModal({ isOpen, onClose }) {
             </div>
 
             <div>
-              <h2 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.5rem' }}>
+              <h2 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', borderBottom: '1px solid #cbd5e1', paddingBottom: '0.2rem', marginBottom: '0.5rem' }}>
                 Education
               </h2>
-              <div style={{ fontSize: '0.85rem', color: '#334155' }}>
+              <div style={{ fontSize: '0.82rem', color: '#334155' }}>
                 <div style={{ fontWeight: 700, color: '#0f172a' }}>{education.degree}</div>
                 <div>{education.institution} ({education.period})</div>
                 <div style={{ fontWeight: 700, color: '#0284c7' }}>CGPA: {education.cgpa}</div>

@@ -55,7 +55,7 @@ export default function Hero({ onOpenResume }) {
           {/* Left Column: Text & Content */}
           <div>
             {/* Status Pill Badge */}
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div style={{ marginBottom: '1.25rem' }}>
               <span className="badge badge-cyan" style={{ padding: '0.4rem 1rem', fontSize: '0.85rem' }}>
                 <span
                   style={{
@@ -75,7 +75,7 @@ export default function Hero({ onOpenResume }) {
             {/* Name Heading */}
             <h1
               style={{
-                fontSize: '3.5rem',
+                fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
                 fontWeight: 800,
                 lineHeight: 1.1,
                 marginBottom: '1rem',
@@ -90,7 +90,7 @@ export default function Hero({ onOpenResume }) {
             {/* Dynamic Typing Subtitle */}
             <div
               style={{
-                fontSize: '1.4rem',
+                fontSize: 'clamp(1.1rem, 3vw, 1.4rem)',
                 fontWeight: 600,
                 color: 'var(--accent-cyan)',
                 marginBottom: '1.5rem',
@@ -117,7 +117,7 @@ export default function Hero({ onOpenResume }) {
             <p
               style={{
                 color: 'var(--text-secondary)',
-                fontSize: '1.1rem',
+                fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
                 lineHeight: 1.7,
                 marginBottom: '2rem',
                 maxWidth: '620px',
@@ -128,10 +128,11 @@ export default function Hero({ onOpenResume }) {
 
             {/* CTA Buttons Row */}
             <div
+              className="hero-cta-group"
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: '1rem',
+                gap: '0.85rem',
                 marginBottom: '2.5rem',
               }}
             >
@@ -170,6 +171,7 @@ export default function Hero({ onOpenResume }) {
 
             {/* High Impact Highlights Row */}
             <div
+              className="hero-highlights-row"
               style={{
                 display: 'flex',
                 gap: '1.5rem',
@@ -189,9 +191,9 @@ export default function Hero({ onOpenResume }) {
                 >
                   <Server size={20} />
                 </div>
-                <div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>MERN Stack</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Scalable Architecture</div>
+                <div style={{ textAlign: 'left' }}>
+                  <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>MERN Stack</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>Scalable Architecture</div>
                 </div>
               </div>
 
@@ -206,9 +208,9 @@ export default function Hero({ onOpenResume }) {
                 >
                   <Brain size={20} />
                 </div>
-                <div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>Python & AI</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>TensorFlow & OpenCV</div>
+                <div style={{ textAlign: 'left' }}>
+                  <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>Python & AI</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>TensorFlow & OpenCV</div>
                 </div>
               </div>
 
@@ -223,9 +225,9 @@ export default function Hero({ onOpenResume }) {
                 >
                   <Code2 size={20} />
                 </div>
-                <div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>AWS & PM2</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>High Availability</div>
+                <div style={{ textAlign: 'left' }}>
+                  <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>AWS & PM2</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>High Availability</div>
                 </div>
               </div>
             </div>
@@ -243,7 +245,8 @@ export default function Hero({ onOpenResume }) {
             <div
               style={{
                 position: 'absolute',
-                width: '320px',
+                width: '100%',
+                maxWidth: '320px',
                 height: '320px',
                 borderRadius: '50%',
                 background: 'var(--gradient-main)',
@@ -255,7 +258,7 @@ export default function Hero({ onOpenResume }) {
 
             {/* Card Frame */}
             <div
-              className="glass-card"
+              className="glass-card hero-profile-card"
               style={{
                 position: 'relative',
                 zIndex: 1,
@@ -268,6 +271,7 @@ export default function Hero({ onOpenResume }) {
             >
               {/* Profile Image Frame */}
               <div
+                className="hero-profile-img-frame"
                 style={{
                   position: 'relative',
                   width: '100%',
@@ -286,10 +290,8 @@ export default function Hero({ onOpenResume }) {
                     height: '100%',
                     objectFit: 'cover',
                     objectPosition: 'center top',
-                    transition: 'transform 0.5s ease',
                   }}
                   onError={(e) => {
-                    // Fallback to avatar if image fails
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
                   }}
@@ -356,8 +358,8 @@ export default function Hero({ onOpenResume }) {
                     border: '1px solid var(--card-border)',
                   }}
                 >
-                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>1,000+</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Concurrent Users</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>1,000+</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>Concurrent Users</div>
                 </div>
 
                 <div
@@ -368,36 +370,14 @@ export default function Hero({ onOpenResume }) {
                     border: '1px solid var(--card-border)',
                   }}
                 >
-                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-purple)' }}>+15%</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Model Accuracy</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-purple)' }}>+15%</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>Model Accuracy</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 992px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            text-align: center;
-          }
-          .hero-title {
-            font-size: 2.75rem !important;
-          }
-          .hero-subtitle {
-            justify-content: center;
-          }
-          p {
-            margin-left: auto;
-            margin-right: auto;
-          }
-          .hero-grid > div {
-            justify-content: center;
-          }
-        }
-      `}</style>
     </section>
   );
 }

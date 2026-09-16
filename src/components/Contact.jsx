@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Check, Copy, Github, Linkedin, Sparkles, MessageSquare, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Check, Copy, Github, Linkedin, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalDetails } from '../data/portfolioData';
 
@@ -78,154 +78,74 @@ export default function Contact({ showToast }) {
           <span className="section-subtitle">LET'S CONNECT</span>
           <h2 className="section-title">Get In <span className="gradient-text">Touch</span></h2>
           <p className="section-description">
-            Messages submitted here deliver directly to <strong>{personalDetails.email}</strong>.
+            Messages submitted here deliver directly to <strong style={{ wordBreak: 'break-all' }}>{personalDetails.email}</strong>.
           </p>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '0.9fr 1.1fr',
-            gap: '3rem',
-            maxWidth: '1050px',
-            margin: '0 auto',
-          }}
-          className="contact-grid"
-        >
+        <div className="contact-grid">
           {/* Left Column: Quick Info Cards */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div className="contact-info-col">
             {/* Email Card */}
-            <div
-              className="glass-card"
-              style={{
-                padding: '1.5rem',
-                borderRadius: '18px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div
-                  style={{
-                    width: '46px',
-                    height: '46px',
-                    borderRadius: '12px',
-                    background: 'rgba(0, 242, 254, 0.12)',
-                    color: 'var(--accent-cyan)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
+            <div className="glass-card contact-info-card contact-email-card">
+              <div className="contact-info-left">
+                <div className="contact-icon-box icon-cyan">
                   <Mail size={22} />
                 </div>
-                <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Direct Email</div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                    {personalDetails.email}
-                  </div>
+                <div className="contact-text-box">
+                  <div className="contact-label">Direct Email</div>
+                  <div className="contact-val email-val">{personalDetails.email}</div>
                 </div>
               </div>
 
               <button
                 onClick={handleCopyEmail}
-                className="btn btn-secondary"
-                style={{ padding: '0.5rem 0.85rem', fontSize: '0.8rem' }}
+                className="btn btn-secondary copy-btn"
                 title="Copy Email"
               >
                 {copied ? <Check size={16} color="var(--accent-emerald)" /> : <Copy size={16} />}
+                <span className="copy-btn-text">{copied ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
 
             {/* Phone Card */}
             <a
               href={`tel:${personalDetails.phone}`}
-              className="glass-card"
-              style={{
-                padding: '1.5rem',
-                borderRadius: '18px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
+              className="glass-card contact-info-card"
+              style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <div
-                style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '12px',
-                  background: 'rgba(168, 85, 247, 0.12)',
-                  color: 'var(--accent-purple)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <Phone size={22} />
-              </div>
-              <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Phone / WhatsApp</div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                  {personalDetails.phone}
+              <div className="contact-info-left">
+                <div className="contact-icon-box icon-purple">
+                  <Phone size={22} />
+                </div>
+                <div className="contact-text-box">
+                  <div className="contact-label">Phone / WhatsApp</div>
+                  <div className="contact-val">{personalDetails.phone}</div>
                 </div>
               </div>
             </a>
 
             {/* Location Card */}
-            <div
-              className="glass-card"
-              style={{
-                padding: '1.5rem',
-                borderRadius: '18px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-              }}
-            >
-              <div
-                style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '12px',
-                  background: 'rgba(16, 185, 129, 0.12)',
-                  color: 'var(--accent-emerald)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <MapPin size={22} />
-              </div>
-              <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Location</div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                  {personalDetails.location}
+            <div className="glass-card contact-info-card">
+              <div className="contact-info-left">
+                <div className="contact-icon-box icon-emerald">
+                  <MapPin size={22} />
+                </div>
+                <div className="contact-text-box">
+                  <div className="contact-label">Location</div>
+                  <div className="contact-val">{personalDetails.location}</div>
                 </div>
               </div>
             </div>
 
             {/* Social Links Row */}
-            <div
-              className="glass-card"
-              style={{
-                padding: '1.5rem',
-                borderRadius: '18px',
-                textAlign: 'center',
-              }}
-            >
-              <div style={{ fontSize: '0.9rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text-primary)' }}>
-                Professional Networks
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+            <div className="glass-card contact-social-card">
+              <div className="social-title">Professional Networks</div>
+              <div className="social-buttons-row">
                 <a
                   href={personalDetails.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-secondary"
-                  style={{ gap: '0.5rem' }}
+                  className="btn btn-secondary social-btn"
                 >
                   <Github size={18} />
                   <span>GitHub</span>
@@ -234,8 +154,7 @@ export default function Contact({ showToast }) {
                   href={personalDetails.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-secondary"
-                  style={{ gap: '0.5rem' }}
+                  className="btn btn-secondary social-btn"
                 >
                   <Linkedin size={18} />
                   <span>LinkedIn</span>
@@ -245,126 +164,74 @@ export default function Contact({ showToast }) {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div
-            className="glass-card"
-            style={{
-              padding: '2.25rem',
-              borderRadius: '24px',
-            }}
-          >
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-primary)' }}>
+          <div className="glass-card contact-form-card">
+            <h3 className="form-heading">
               Send a Direct Email Message
             </h3>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-              Your message will be sent directly to <code>thesnikozhikkoden241@gmail.com</code>.
+            <p className="form-subheading">
+              Your message will be delivered directly to <span className="email-code">{personalDetails.email}</span>.
             </p>
 
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>
-                  Your Name *
-                </label>
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="form-group">
+                <label className="form-label">Your Name *</label>
                 <input
                   type="text"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Sarah Jenkins"
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid var(--card-border)',
-                    color: 'var(--text-primary)',
-                    fontSize: '0.95rem',
-                    outline: 'none',
-                  }}
+                  className="form-input"
                 />
               </div>
 
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>
-                  Your Email Address *
-                </label>
+              <div className="form-group">
+                <label className="form-label">Your Email Address *</label>
                 <input
                   type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="e.g. sarah@company.com"
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid var(--card-border)',
-                    color: 'var(--text-primary)',
-                    fontSize: '0.95rem',
-                    outline: 'none',
-                  }}
+                  className="form-input"
                 />
               </div>
 
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>
-                  Subject
-                </label>
+              <div className="form-group">
+                <label className="form-label">Subject</label>
                 <input
                   type="text"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   placeholder="e.g. Software Engineer Position Inquiry"
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid var(--card-border)',
-                    color: 'var(--text-primary)',
-                    fontSize: '0.95rem',
-                    outline: 'none',
-                  }}
+                  className="form-input"
                 />
               </div>
 
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>
-                  Message *
-                </label>
+              <div className="form-group">
+                <label className="form-label">Message *</label>
                 <textarea
                   required
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Type your message details..."
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid var(--card-border)',
-                    color: 'var(--text-primary)',
-                    fontSize: '0.95rem',
-                    outline: 'none',
-                    resize: 'vertical',
-                  }}
+                  placeholder="Type your message details here..."
+                  className="form-input form-textarea"
                 />
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
+              <div className="form-actions">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn btn-primary"
-                  style={{ width: '100%', justifyContent: 'center' }}
+                  className="btn btn-primary submit-btn"
                 >
                   {isSubmitting ? (
-                    <span>Sending to Inbox...</span>
+                    <span>Sending Message...</span>
                   ) : (
                     <>
                       <Send size={18} />
-                      <span>Send Direct Email Message</span>
+                      <span>Send Direct Message</span>
                     </>
                   )}
                 </button>
@@ -372,17 +239,246 @@ export default function Contact({ showToast }) {
                 <button
                   type="button"
                   onClick={handleDirectEmailApp}
-                  className="btn btn-outline"
-                  style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem' }}
+                  className="btn btn-outline mailto-btn"
                 >
                   <ExternalLink size={16} />
-                  <span>Open in My Email Client (Gmail / Outlook)</span>
+                  <span>Open Email App</span>
                 </button>
               </div>
             </form>
           </div>
         </div>
       </div>
+
+      <style>{`
+        /* Contact Section Responsive Styling */
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 2.5rem;
+          max-width: 1050px;
+          margin: 0 auto;
+        }
+
+        .contact-info-col {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+        }
+
+        .contact-info-card {
+          padding: 1.25rem 1.5rem;
+          border-radius: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+        }
+
+        .contact-info-left {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          min-width: 0;
+        }
+
+        .contact-icon-box {
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .icon-cyan {
+          background: rgba(0, 242, 254, 0.12);
+          color: var(--accent-cyan);
+        }
+
+        .icon-purple {
+          background: rgba(168, 85, 247, 0.12);
+          color: var(--accent-purple);
+        }
+
+        .icon-emerald {
+          background: rgba(16, 185, 129, 0.12);
+          color: var(--accent-emerald);
+        }
+
+        .contact-text-box {
+          min-width: 0;
+        }
+
+        .contact-label {
+          font-size: 0.78rem;
+          color: var(--text-muted);
+        }
+
+        .contact-val {
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: var(--text-primary);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .email-val {
+          word-break: break-all;
+        }
+
+        .copy-btn {
+          padding: 0.5rem 0.85rem;
+          font-size: 0.8rem;
+          flex-shrink: 0;
+        }
+
+        .copy-btn-text {
+          display: inline;
+        }
+
+        .contact-social-card {
+          padding: 1.5rem;
+          border-radius: 18px;
+          text-align: center;
+        }
+
+        .social-title {
+          font-size: 0.9rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          color: var(--text-primary);
+        }
+
+        .social-buttons-row {
+          display: flex;
+          justify-content: center;
+          gap: 0.85rem;
+        }
+
+        .social-btn {
+          flex: 1;
+          justify-content: center;
+        }
+
+        /* Contact Form Card */
+        .contact-form-card {
+          padding: clamp(1.25rem, 3vw, 2.25rem);
+          border-radius: 24px;
+        }
+
+        .form-heading {
+          font-size: clamp(1.2rem, 3vw, 1.4rem);
+          font-weight: 800;
+          margin-bottom: 0.5rem;
+          color: var(--text-primary);
+        }
+
+        .form-subheading {
+          color: var(--text-secondary);
+          font-size: 0.9rem;
+          margin-bottom: 1.5rem;
+          word-break: break-word;
+        }
+
+        .email-code {
+          font-family: 'Fira Code', monospace;
+          background: rgba(0, 242, 254, 0.1);
+          color: var(--accent-cyan);
+          padding: 0.15rem 0.4rem;
+          border-radius: 6px;
+          word-break: break-all;
+        }
+
+        .contact-form {
+          display: flex;
+          flex-direction: column;
+          gap: 1.1rem;
+        }
+
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 0.35rem;
+        }
+
+        .form-label {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--text-secondary);
+        }
+
+        .form-input {
+          width: 100%;
+          padding: 0.8rem 1rem;
+          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid var(--card-border);
+          color: var(--text-primary);
+          font-size: 0.95rem;
+          outline: none;
+          font-family: inherit;
+          transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+          border-color: var(--accent-cyan);
+        }
+
+        .form-textarea {
+          resize: vertical;
+          min-height: 110px;
+        }
+
+        .form-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-top: 0.5rem;
+        }
+
+        .submit-btn, .mailto-btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 850px) {
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact-email-card {
+            flex-direction: column;
+            align-items: stretch !important;
+            text-align: center;
+          }
+
+          .contact-info-left {
+            flex-direction: column;
+            text-align: center;
+          }
+
+          .contact-val {
+            white-space: normal !important;
+            word-break: break-all;
+          }
+
+          .social-buttons-row {
+            flex-direction: column;
+          }
+
+          .copy-btn {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+      `}</style>
     </section>
   );
 }
